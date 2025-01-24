@@ -35,11 +35,11 @@ Component({
   methods: {
     onTab(tab, index){
       console.log(tab.currentTarget.dataset.tab);
-      console.log(tab);
+      console.log(tab.currentTarget.dataset.index);
       this.setData({
-        curIndex: index
+        curIndex: tab.currentTarget.dataset.index
       });
-      this.triggerEvent('onTab', tab.currentTarget.dataset.tab, {});
+      this.triggerEvent('OnTab', {tab: tab.currentTarget.dataset.tab, index: tab.currentTarget.dataset.index}, {});
     }
   }
 })

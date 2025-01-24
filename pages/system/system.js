@@ -1,4 +1,5 @@
 // pages/system/system.js
+const colors = require("../../utils/colors")
 Page({
 
   /**
@@ -6,8 +7,9 @@ Page({
    */
   data: {
     tabList:[
-      {"name": "体系", selectStyle: "background-color: white;font-size: 28px;", unSelectStyle: "font-size: 28px;background-color: #999999;"},
-      {"name": "导航", selectStyle: "background-color: white;font-size: 28px;", unSelectStyle: "font-size: 28px;background-color: #999999;"}]
+      {"name": "体系", selectStyle: "color: white;font-size: 18px;padding-right: 4px;font-weight: 500;", unSelectStyle: "font-size: 18px;color: #999999;padding-right: 4px;font-weight: 500;"},
+      {"name": "导航", selectStyle: "color: white;font-size: 18px;padding-left: 4px;font-weight: 500;", unSelectStyle: "font-size: 18px;color: #999999;padding-left: 4px;font-weight: 500;"}],
+      navBgColor: colors.C_ff0000
   },
 
   /**
@@ -66,7 +68,10 @@ Page({
 
   },
 
-  onTab(tab){
-    console.log("tab===>>",tab)
+  onTab(res){
+    console.log("tab===>>",res)
+    this.setData({
+      curTabIndex: res.detail.index
+    })
   }
 })

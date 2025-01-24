@@ -1,5 +1,5 @@
 <!--component/nav/nav.wxml-->
-<view style="height: {{navHeight}}px;background-color:white;padding-top: {{statusBarHeight}}px;">
+<view style="height: {{navHeight}}px;background-color:{{backgroundColor}};padding-top: {{statusBarHeight}}px;">
   <view style="height: {{navHeight}}px;">
     <view class="row align-items-center padding-horizontal-16" style="height: 100%;">
       <slot></slot>

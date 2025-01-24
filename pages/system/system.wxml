@@ -1,8 +1,8 @@
 <!--pages/system/system.wxml-->
 <view class="column">
-  <nav>
+  <nav backgroundColor="{{navBgColor}}">
     <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
-      <tab tabs="{{tabList}}" onTab="onTab"/>
+      <tab tabs="{{tabList}}" bindOnTab="onTab"/>
     </view>
    
   </nav>
