@@ -1,0 +1,18 @@
+<view class="home">
+  <view>
+    <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{bannerList}}" wx:for-item="banner" wx:key="imagePath" >
+          <swiper-item>
+            <image class="swiper-item" src="{{banner.imagePath}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+
+  <scroll-view>
+    <view wx:for="{{articleList}}" wx:for-item="article" wx:key="id">
+      <article-item article="{{article}}"></article-item>
+    </view>
+  </scroll-view>
+</view>

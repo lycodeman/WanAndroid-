@@ -1,0 +1,4 @@
+<!--component/tab/tab.wxml-->
+<view class="row">
+  <text wx:for="{{tabs}}" wx:for-item="tab" wx:key="name" bind:tap="onTab" data-tab="{{tab}}" data-index="{{index}}" class="{{index == curIndex ? tab.selectStyle : tab.unSelectStyle}}">{{tab.name}}</text>
+</view>

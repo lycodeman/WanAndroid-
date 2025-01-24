@@ -1,0 +1,9 @@
+<!--pages/system/system.wxml-->
+<view class="column">
+  <nav>
+    <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+      <tab tabs="{{tabList}}" onTab="onTab"/>
+    </view>
+   
+  </nav>
+</view>

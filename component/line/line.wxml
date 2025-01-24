@@ -1,0 +1,2 @@
+<!--component/line/line.wxml-->
+<view style="height: {{height}};width: {{width}};background-color: {{color}};"/>

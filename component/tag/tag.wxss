@@ -1,0 +1,8 @@
+/* component/tag/tag.wxss */
+.tag {
+  font-size: 20rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #fa0101;
+  padding: 4rpx 8rpx;
+  color: #fa0101;
+}

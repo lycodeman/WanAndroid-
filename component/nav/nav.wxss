@@ -1,0 +1,4 @@
+/* component/nav/nav.wxss */
+.nav {
+  background-color: white;
+}

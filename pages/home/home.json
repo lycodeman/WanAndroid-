@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "article-item": "../../component/article-item/article-item"
+  },
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true
+}

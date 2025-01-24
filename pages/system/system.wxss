@@ -1,0 +1,6 @@
+/* pages/system/system.wxss */
+.ss{
+  background-color: white;
+  font-size: 28px;
+  background-color: #999999;
+}

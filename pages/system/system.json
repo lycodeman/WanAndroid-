@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "nav": "../../component/nav/nav",
+    "tab": "../../component/tab/tab"
+  },
+  "navigationStyle": "custom"
+}

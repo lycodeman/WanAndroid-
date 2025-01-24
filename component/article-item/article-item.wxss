@@ -1,0 +1,23 @@
+/* component/articleItem/article-item.wxss */
+.new-text {
+  color: #ff0000;
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+.time {
+  color: #9c9c9c;
+  font-size: 24rpx;
+}
+.collect {
+  width: 48rpx;
+  height: 48rpx;
+}
+.author {
+  margin-right: 8rpx;
+  font-size: 22rpx;
+  color: #666666;
+}
+.chapter {
+  font-size: 24rpx;
+  color: #999999;
+}

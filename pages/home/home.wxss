@@ -1,0 +1,9 @@
+/* pages/home/home.wxss */
+.home {
+  display: flex;
+  flex-direction: column;
+}
+.swiper-item {
+  height: 360rpx;
+  width: 100%;
+}
