@@ -1,2 +1,2 @@
 <!--component/tag/tag.wxml-->
-<text class="tag" capture-catch:tap="onClick" data-url="{{url}}">{{tagName}}</text>
+<view style="{{tagStyle != null ? tagStyle :'tag'}}" capture-catch:tap="onClick" data-url="{{url}}">{{tagName}}</view>

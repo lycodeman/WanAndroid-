@@ -19,7 +19,8 @@ Component({
         // 属性值变化时执行
        
       }
-    }
+    },
+    tagStyle: null
   },
 
   /**
@@ -33,8 +34,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onClick(url){
-      console.log("点击了tag ：",url);
+    onClick(ev){
+      console.log("点击了tag ：",ev);
+      this.triggerEvent('OnClick', {data: ev.currentTarget.dataset.url}, {});
     }
   }
 })

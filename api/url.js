@@ -3,6 +3,14 @@ const url = {
   banner: "/banner/json",
   home(index){
     return `/article/list/${index}/json`;
+  },
+  system: "/tree/json",
+  nav: "/navi/json",
+  article(index, cid){
+    return `/article/list/${index}/json?cid=${cid}`;
+  },
+  square(index){
+    return `/user_article/list/${index}/json`;
   }
 }
 

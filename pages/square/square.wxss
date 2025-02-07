@@ -1,1 +1,18 @@
 /* pages/square/square.wxss */
+.title {
+  color: white;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.page{
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.scroll-view {
+  flex: 1; /* 使其占满剩余空间 */
+  height: calc(100vh - 44px); /* 减去 van-tab 的高度 */
+  overflow-y: auto;
+}

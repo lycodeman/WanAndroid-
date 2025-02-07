@@ -24,16 +24,6 @@ Page({
     this.home(true);
     this.banner();
   },
-
-  onPullDownRefresh(){
-    this.home(true);
-    this.banner();
-  },
-
-  onReachBottom(){
-    console.log("====")
-    this.home(false);
-  },
   banner(){
     api.banner(res=>{
       this.setData({
@@ -102,14 +92,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.home(true);
+    this.banner();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    console.log("====")
+    this.home(false);
   },
 
   /**

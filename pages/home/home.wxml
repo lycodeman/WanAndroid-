@@ -7,12 +7,12 @@
             <image class="swiper-item" src="{{banner.imagePath}}"></image>
           </swiper-item>
         </block>
-      </swiper>
+    </swiper>
   </view>
 
-  <scroll-view>
+  <view>
     <view wx:for="{{articleList}}" wx:for-item="article" wx:key="id">
       <article-item article="{{article}}"></article-item>
     </view>
-  </scroll-view>
+  </view>
 </view>

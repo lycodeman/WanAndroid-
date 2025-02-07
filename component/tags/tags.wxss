@@ -1,0 +1,14 @@
+/* component/tags/tags.wxss */
+
+.title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #6d6d6d;
+  padding: 16rpx 32rpx;
+}
+.tag {
+  padding: 0rpx 16rpx 16rpx 0rpx;
+  align-content:flex-start;
+  box-sizing: border-box;
+  margin: 0rpx 32rpx 32rpx 32rpx;
+}

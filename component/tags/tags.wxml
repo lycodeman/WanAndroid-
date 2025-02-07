@@ -1,0 +1,7 @@
+<!--component/tags/tags.wxml-->
+<view class="column">
+  <view class="title">{{title}}</view>
+  <view class="row flex-rap tag">
+    <tag wx:for="{{tagList}}" wx:key="tag" tagStyle="{{tagStyle}}" tagName="{{(tagList[index].name != null) ? tagList[index].name: tagList[index].title}}" url="{{index}}" bindOnClick="onClick"></tag>
+  </view>
+</view>

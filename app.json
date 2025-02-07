@@ -1,11 +1,13 @@
 {
-  "entryPagePath": "pages/system/system",
+  "entryPagePath": "pages/home/home",
   "pages": [
     "pages/home/home",
     "pages/system/system",
     "pages/square/square",
     "pages/my/my",
-    "pages/webview/webview"
+    "pages/webview/webview",
+    "pages/article/article",
+    "pages/qa/qa"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -15,5 +17,45 @@
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "dependencies": {
+    "@vant/weapp": "^1.0.0"
+  },
+  "tabBar": {
+    "color": "#c9c9c9",
+    "selectedColor": "#ff0000",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_select.png"
+      },
+      {
+        "pagePath": "pages/qa/qa",
+        "text": "问答",
+        "iconPath": "images/qa.png",
+        "selectedIconPath": "images/qa_select.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "images/square.png",
+        "selectedIconPath": "images/square_select.png"
+      },
+      {
+        "pagePath": "pages/system/system",
+        "text": "体系",
+        "iconPath": "images/sys.png",
+        "selectedIconPath": "images/sys_select.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_select.png"
+      }
+    ]
+  }
 }

@@ -1,9 +1,17 @@
 <!--pages/system/system.wxml-->
-<view class="column">
+<scroll-view scroll-y="true" 	show-scrollbar="false" class="column scroll-view" style="position: relative;height: 100%;">
   <nav backgroundColor="{{navBgColor}}">
     <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
-      <tab tabs="{{tabList}}" bindOnTab="onTab"/>
+      <tab tabs="{{tabList}}" bindOnTab="onTab" initIndex="{{curTabIndex}}"/>
     </view>
-   
   </nav>
-</view>
+
+  <view scroll-y="true" class="page scroll-view" style="padding-top: {{navHeight}}px;">
+    <view wx:for="{{sysList}}" wx:for-index="sysIndex" wx:key="sysItem" class="tags"  wx:if="{{curTabIndex == 0}}">
+      <tags tagList="{{sysList[sysIndex].children}}" title="{{sysList[sysIndex].name}}" index="{{sysIndex}}" bindOnClick="onSysTagClick"></tags>
+    </view>
+    <view wx:for="{{navList}}" wx:for-index="navIndex" wx:key="navItem" class="tags" wx:if="{{curTabIndex == 1}}">
+      <tags tagList="{{navList[navIndex].articles}}" title="{{navList[navIndex].name}}" bindOnClick="onNavTagClick"></tags>
+    </view>
+  </view>
+</scroll-view>

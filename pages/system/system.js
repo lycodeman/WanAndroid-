@@ -1,5 +1,7 @@
 // pages/system/system.js
 const colors = require("../../utils/colors")
+const api = require('../../api/api');
+const nav = require('../../utils/nav');
 Page({
 
   /**
@@ -7,16 +9,51 @@ Page({
    */
   data: {
     tabList:[
-      {"name": "体系", selectStyle: "color: white;font-size: 18px;padding-right: 4px;font-weight: 500;", unSelectStyle: "font-size: 18px;color: #999999;padding-right: 4px;font-weight: 500;"},
-      {"name": "导航", selectStyle: "color: white;font-size: 18px;padding-left: 4px;font-weight: 500;", unSelectStyle: "font-size: 18px;color: #999999;padding-left: 4px;font-weight: 500;"}],
-      navBgColor: colors.C_ff0000
+      {"name": "体系", selectStyle: "color: white;font-size: 16px;padding-right: 4px;font-weight: 600;", unSelectStyle: "font-size: 16px;color: #cfcfcf;padding-right: 4px;font-weight: 600;"},
+      {"name": "导航", selectStyle: "color: white;font-size: 16px;padding-left: 4px;font-weight: 600;", unSelectStyle: "font-size: 16px;color: #cfcfcf;padding-left: 4px;font-weight: 600;"}],
+    navBgColor: colors.C_ff0000,
+    sysList: [],
+    navList: [],
+    pageList: [[],[]],
+    autoplay: false,
+    indicatorDots: false,
+    circular: false,
+    curTabIndex: 0,
+    navHeight: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(wx.getWindowInfo())
+    console.log(wx.getWindowInfo());
+    this.data.pageList = [[],[]];
+    this.setData({
+      navHeight: wx.getWindowInfo().statusBarHeight + 44
+    })
+    this.loadSysData();
+    
+  },
+
+  loadNavData(){
+    api.nav(res=> {
+      this.data.pageList[1] = res;
+      this.setData({
+        navList: res,
+        pageList: this.data.pageList
+      })
+    }, error=>{
+    });
+  },
+  loadSysData(){
+    api.system(res=> {
+      this.data.pageList[0] = res;
+      this.setData({
+        sysList: res,
+        pageList: this.data.pageList
+      })
+    }, error=>{
+    });
   },
 
   /**
@@ -72,6 +109,26 @@ Page({
     console.log("tab===>>",res)
     this.setData({
       curTabIndex: res.detail.index
+    },res=> {
+      if(this.data.navList.length == 0){
+        this.loadNavData()
+      }
     })
+  },
+  onSwiperChange(res){
+    console.log("onSwiperChange===>>",res);
+    this.setData({
+      curTabIndex: res.detail.current
+    },res=>{
+      console.log("curTabIndex===>>",this.data.curTabIndex);
+    })
+  },
+  onNavTagClick(res){
+    nav.navWeb(res.detail.data.link);
+  },
+  onSysTagClick(res){
+    let curTag = this.data.sysList[res.detail.index];
+    console.log(curTag);
+    nav.navArticle(this.data.sysList[res.detail.index].name, JSON.stringify(curTag.children.map(item => ({ name: item.name, id: item.id }))));
   }
 })

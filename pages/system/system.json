@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "nav": "../../component/nav/nav",
-    "tab": "../../component/tab/tab"
+    "tab": "../../component/tab/tab",
+    "tags": "../../component/tags/tags"
   },
   "navigationStyle": "custom"
 }

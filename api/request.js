@@ -2,6 +2,7 @@ const loading = require("../utils/loading.js");
 const toast = require("../utils/toast.js");
 function wrapper(request, onSuccess, onFail, onComplete) {
   loading.show('加载中...');
+  console.log("【Request】", request);
   wx.request({
     url: request.url,
     data: request.data,
@@ -9,8 +10,8 @@ function wrapper(request, onSuccess, onFail, onComplete) {
     header: request.header,
     timeout: request.timeout,
     success: res=>{
-      console.log("【Response】" , res.data);
       loading.hide();
+      console.log("【Response】" , res.data);
       onSuccess && onSuccess(res.data.data);
     },
     fail: error=> {

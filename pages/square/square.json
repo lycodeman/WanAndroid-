@@ -1,4 +1,9 @@
 {
   "navigationBarTitleText": "广场",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "article-item": "../../component/article-item/article-item",
+    "nav": "../../component/nav/nav"
+  },
+  "enablePullDownRefresh": true
 }

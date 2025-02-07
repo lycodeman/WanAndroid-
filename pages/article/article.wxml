@@ -1,0 +1,22 @@
+<!--pages/article/article.wxml-->
+<view class="column" style="position: relative;height: 100%;">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+  <view class="page" style="padding-top: {{navHeight}}px;">
+    <van-tabs active="{{curIndex}}" bind:change="onTabChange">
+        <van-tab wx:for="{{groupList}}" wx:for-item="groupItem" wx:key="groupId" wx:for-index="groupIndex" title="{{groupList[groupIndex].name}}" style="position: fixed;" >
+          <scroll-view bindscrolltoupper="scrollTop" bindscrolltolower="scrollBottom" class="scroll-view" scroll-y="true" wx:if="{{groupList[groupIndex].articleList != undefined && groupList[groupIndex].articleList.length > 0}}">
+            <view wx:for="{{groupList[groupIndex].articleList}}" wx:for-item="articleItem" wx:key="articleId" >
+              <article-item article="{{articleItem}}"></article-item>
+            </view>
+          </scroll-view>
+        </van-tab>
+    </van-tabs>
+  </view>
+</view>
