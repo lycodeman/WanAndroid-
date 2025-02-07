@@ -1,18 +1,58 @@
 // pages/qa/qa.js
+const colors = require("../../utils/colors");
+const api = require("../../api/api")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    title: '问答',
+    navBgColor: colors.C_ff0000,
+    qaList: [],
+    curPage: 0,
+    navHeight: 0,
+    enableLoadMore: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      navHeight: wx.getWindowInfo().statusBarHeight + 44
+    },res=>{
+        this.loadSquare(false);
+    });
+  },
+  loadSquare(loadMore){
+    let curIndex = this.data.curPage;
+    if(loadMore){
+      if(!this.data.enableLoadMore){
+        return;
+      }
+    }else {
+      curIndex = 0
+      this.data.enableLoadMore = true;
+    }
+    api.wenda(curIndex, res=>{
+      if(!loadMore){
+        this.setData({
+          qaList: res.datas,
+          curPage: this.data.curPage + 1
+        })
+      }else {
+        this.setData({
+          qaList: this.data.qaList.concat(res.datas),
+          curPage: this.data.curPage + 1
+        })
+      }
+      if(loadMore && res.curPage >= res.pageCount){
+        this.data.enableLoadMore = false;
+      }
+    },res=>{
+      
+    });
   },
 
   /**
@@ -43,24 +83,19 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
+  onPullDownRefresh(){
+    this.loadSquare(false);
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
+ 
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage() {
 
+  },
+
+  scrollBottom(){
+    this.loadSquare(true);
   }
 })

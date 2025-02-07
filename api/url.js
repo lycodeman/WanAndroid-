@@ -11,6 +11,9 @@ const url = {
   },
   square(index){
     return `/user_article/list/${index}/json`;
+  },
+  wenda(index){
+    return `/wenda/list/${index}/json`;
   }
 }
 

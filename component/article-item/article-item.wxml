@@ -4,15 +4,16 @@
     <view class="row align-items-center">
       <text wx:if="{{isNew}}" class="new-text">NEW</text>
       <text class="author">{{article.author?article.author:article.shareUser}}</text>
-      <view style="display: flex; flex-direction: row;" wx:for="{{article.tags}}" 
+      <view style="display: flex; flex-direction: row;margin-right: 8px;" wx:for="{{article.tags}}" 
         wx:for-item="tag" wx:key="url">
         <tag tagName="{{tag.name}}" url="{{tag.url}}"></tag>
       </view>
     </view>
     <text class="time">{{article.niceDate}}</text>
   </view>
-  <view class="align-items-center padding-vertical-24 padding-horizontal-24">
+  <view class="column padding-vertical-24 padding-horizontal-24">
     <text>{{article.title}}</text>
+    <text class="desc" wx:if="{{descFormat != undefined}}">{{descFormat}}</text>
   </view>
   <view class="row space-between align-items-center padding-horizontal-24" style="margin-bottom: 8rpx;">
     <text class="chapter">{{article.superChapterName}}・{{article.chapterName}}</text>

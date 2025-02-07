@@ -1,2 +1,17 @@
 <!--pages/qa/qa.wxml-->
-<text>pages/qa/qa.wxml</text>
+<view class="column" style="position: relative;height: 100%;">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+  <view class="page" style="padding-top: {{navHeight}}px;">
+    <scroll-view bindscrolltoupper="scrollTop" bindscrolltolower="scrollBottom" class="scroll-view" scroll-y="true" wx:if="{{qaList != undefined && qaList.length > 0}}">
+            <view wx:for="{{qaList}}" wx:for-item="qaItem" wx:key="qaId" >
+              <article-item article="{{qaItem}}"></article-item>
+            </view>
+          </scroll-view>
+  </view>
+</view>

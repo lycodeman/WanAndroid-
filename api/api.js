@@ -39,6 +39,10 @@ function square(index,onSuccess, onComplete) {
   requestByPath(url.square(index), onSuccess, onComplete);
 }
 
+function wenda(index,onSuccess, onComplete) {
+  requestByPath(url.wenda(index), onSuccess, onComplete);
+}
+
 
 module.exports = {
   home: home,
@@ -47,4 +51,5 @@ module.exports = {
   system: system,
   article: article,
   square: square,
+  wenda: wenda,
 }

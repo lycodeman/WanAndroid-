@@ -13,11 +13,20 @@
   height: 48rpx;
 }
 .author {
-  margin-right: 8rpx;
+  margin-right: 8px;
   font-size: 22rpx;
   color: #666666;
 }
 .chapter {
   font-size: 24rpx;
   color: #999999;
+}
+.desc {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 显示最多3行 */
+  overflow: hidden; /* 隐藏超过的内容 */
+  text-overflow: ellipsis; /* 显示省略号 */
 }
