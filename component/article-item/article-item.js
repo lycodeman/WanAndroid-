@@ -17,7 +17,7 @@ Component({
         // 属性值变化时执行
         let isNew = date.isToday(newVal.publishTime)
         let desc = newVal.desc;
-        if(desc != undefined && desc != null){
+        if(desc != undefined && desc != null && desc.length != 0){
           desc = this.formatText(desc);
         }
         this.setData({
@@ -55,8 +55,7 @@ Component({
       while ((match = regex.exec(htmlString)) !== null) {
         result.push(match[2].replace(/<[^>]+>/g, '').trim().replace(/[\n\r\s]+/g, ' ').trim());  // 提取去掉标签后的内容
       }
-
-      console.log(result);
+      console.log("【"+htmlString+ "】"+result);
       return result;
     }
   }

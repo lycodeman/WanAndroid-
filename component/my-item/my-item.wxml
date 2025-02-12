@@ -1,0 +1,7 @@
+<!--component/my-item/my-item.wxml-->
+<view class="row item" bind:tap="onClick">
+  <image class="icon" src="{{item.icon}}"/>
+  <view class="name">{{item.name}}</view>
+  <view class="subText">{{item.subText}}</view>
+  <image class="enter" src="{{'../../images/enter.png'}}"/>
+</view>

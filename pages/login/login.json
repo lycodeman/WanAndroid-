@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav": "../../component/nav/nav",
+    "input-item": "../../component/input-item/input-item",
+    "bg-button": "../../component/bg-button/bg-button"
+  }
+}

@@ -1,4 +1,7 @@
 {
-  "navigationBarTitleText": "sss",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav": "../../component/nav/nav",
+    "my-item": "../../component/my-item/my-item"
+  }
 }

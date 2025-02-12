@@ -1,2 +1,19 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="page">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="back" capture-catch:tap="onBack" src="{{'../../images/message.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+
+  <view class="header align-items-center column"  style="padding-top: {{navHeight}}px;">
+    <image class="userImage" capture-catch:tap="onBack" src="{{'../../images/user_default.png'}}"/>
+    <text class="userName">{{userName}}</text>
+    <text class="userLevel">{{userLevel}}</text>
+  </view>
+
+  <my-item wx:for="{{myItemList}}" wx:key="myItem" item="{{item}}" bindOnClick="itemClick"></my-item>
+</view>

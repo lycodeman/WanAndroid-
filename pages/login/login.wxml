@@ -1,0 +1,38 @@
+<!--pages/login/login.wxml-->
+<view class="align-items-center">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="close" capture-catch:tap="onClose" src="{{'../../images/cha.png'}}"/>
+    </view>
+  </nav>
+
+  <view class="header align-items-center column"  style="padding-top: {{navHeight}}px;">
+    <image class="wellcom" capture-catch:tap="onBack" src="{{'../../images/wellcom.png'}}"/>
+    <text class="userName">{{"欢迎使用"}}</text>
+    <text class="userLevel">{{"本APP由'广广'开发"}}</text>
+  </view>
+
+  <swiper class="justify-content-center align-items-center" style="height: 300px;" current="{{curIndex}}" circular="false" bindchange="swiperChange">
+      <swiper-item wx:for="{{tabList}}" wx:key="loginOrRegister" >
+        <view wx:if="{{curIndex == 0}}" style="margin-top: 16px;">
+          <view class="row justify-content-center align-items-center" bind:tap="onTab" style="margin-top: 8px;" >
+            <view class="tabText">{{tabText}}</view>
+            <image class="enterinto" src="{{'../../images/enterinto_right.png'}}"/>
+          </view>
+          <input-item config="{{userConfig}}" bindTextChange="loginUserInputChange"></input-item>
+          <input-item config="{{pswConfig}}" bindTextChange="loginPswInputChange"></input-item>
+          <bg-button text="登录" bindOnClick="login" isEnable="{{loginBtnEnabel}}"></bg-button>
+        </view>
+        <view wx:if="{{curIndex == 1}}" style="margin-top: 16px;height: 100%;">
+          <view class="row justify-content-center align-items-center" bind:tap="onTab" style="margin-top: 8px;" >
+            <image class="enterinto" src="{{'../../images/enterinto_left.png'}}"/>
+            <view class="tabText">{{tabText}}</view>
+          </view>
+          <input-item config="{{userConfig}}"bindTextChange="registerUserInputChange"></input-item>
+          <input-item config="{{pswConfig}}"bindTextChange="registerPswInputChange"></input-item>
+          <input-item config="{{pswConfig}}"bindTextChange="registerPswAgainInputChange"></input-item>
+          <bg-button text="注册" bindOnClick="regiter" isEnable="{{regiterBtnEnabel}}"></bg-button>
+        </view>
+      </swiper-item>
+  </swiper>
+</view>

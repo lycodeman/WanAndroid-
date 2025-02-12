@@ -1,0 +1,24 @@
+/* component/input-item/input-item.wxss */
+.icon {
+  height: 24px;
+  width: 24px;
+}
+.line {
+  height: 2rpx;
+  width: 100%;
+  background-color: #8a8a8a;
+}
+.lineFocus {
+  height: 2rpx;
+  width: 100%;
+  background-color: #ff0000;
+}
+.input {
+  color: #4a4a4a;
+  flex: 1;
+  margin-left: 16px;
+}
+.close {
+  height: 16px;
+  width: 16px;
+}

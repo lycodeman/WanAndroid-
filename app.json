@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/home/home",
+  "entryPagePath": "pages/my/my",
   "pages": [
     "pages/home/home",
     "pages/system/system",
@@ -7,7 +7,8 @@
     "pages/my/my",
     "pages/webview/webview",
     "pages/article/article",
-    "pages/qa/qa"
+    "pages/qa/qa",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarTextStyle": "black",

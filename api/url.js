@@ -14,7 +14,11 @@ const url = {
   },
   wenda(index){
     return `/wenda/list/${index}/json`;
-  }
+  },
+  login: "/user/login",
+  regiter: "/user/register",
+  logout: "/user/logout/json",
+  coin :"/lg/coin/userinfo/json"
 }
 
 module.exports = url

@@ -1,0 +1,10 @@
+<!--component/input-item/input-item.wxml-->
+<view class="column" style="margin: 24px 36px;">
+  <view class="row flex-rap align-items-center" style="display: flex;margin-bottom: 12px;">
+    <image class="icon" src="{{!isFocus?config.img:config.imgFocus}}"/>
+    <input class="input" value="{{content}}" placeholder="{{config.hint}}" bindconfirm="confirm" bindinput="input" bindfocus="focus" bindblur="blur" password="{{config.showEyes && !eyeFocus}}"></input>
+    <image wx:if="{{content.length > 0}}" class="close" src="{{'../../images/clear.png'}}" bind:tap="clear"/>
+    <image class="close" wx:if="{{config.showEyes}}" src="{{!eyeFocus ? '../../images/eye.png' : '../../images/eye_focus.png'}}" style="margin-left: 8px;" bind:tap="eyeClick"/>
+  </view>
+ <view class="{{isFocus? 'lineFocus': 'line'}}"></view>
+</view>

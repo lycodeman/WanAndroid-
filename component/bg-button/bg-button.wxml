@@ -1,0 +1,2 @@
+<!--component/bgbutton/bg-button.wxml-->
+<view class="{{isEnable ? (btEnableStyle != null ? btEnableStyle : 'bt-enable') : btStyle != null ? btStyle : 'bt'}}" bind:tap="onClick">{{text}}</view>
