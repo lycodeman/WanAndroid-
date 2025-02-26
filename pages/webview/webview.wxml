@@ -1,2 +1,15 @@
 <!--pages/webview/webview.wxml-->
-<web-view src="{{url}}"></web-view>
+<view style="position: relative;">
+  <web-view src="{{url}}" style="z-index: 1;position: relative;" wx:if="false">
+  </web-view>
+  <cover-view wx:if="{{showMore}}" class="bookmark" >
+    <cover-image class="image" bindtap="onBookmark" src="{{!isMark ? '../../images/bookmarks.png' : '../../images/bookmarks_select.png'}}"></cover-image>
+  </cover-view>
+  <cover-view wx:if="{{showMore}}" class="collect" >
+    <cover-image class="image" bindtap="onCollect" src="{{!isCollect ? '../../images/collection_1.png': '../../images/collection_1_select.png'}}"></cover-image>
+  </cover-view>
+  <cover-view class="float-button" wx:if="{{!SshowMore}}" >
+    <cover-image class="image" bindtap="onButtonClick" src="{{showMore?'../../images/close_1.png':'../../images/more.png'}}"></cover-image>
+  </cover-view>
+
+</view>

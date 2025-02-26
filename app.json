@@ -8,12 +8,20 @@
     "pages/webview/webview",
     "pages/article/article",
     "pages/qa/qa",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/history/history",
+    "pages/bookmark/bookmark",
+    "pages/collect/collect",
+    "pages/share/share",
+    "pages/integral/integral",
+    "pages/coinrank/coinrank",
+    "pages/addshare/addshare"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "玩Android",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F5F5F5"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

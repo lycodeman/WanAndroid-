@@ -5,6 +5,8 @@ const login = require("../../utils/login");
 const nav = require("../../utils/nav");
 const cache = require("../../utils/cache");
 const { Login_Event } = require("../../utils/event_channel");
+const { navHistory, navIntegral, navShare, navCollect, navBookmark } = require("../../utils/nav");
+const storage = require("../../utils/storage");
 Page({
 
   /**
@@ -44,6 +46,7 @@ Page({
     if(login.isLogin()){
       this.loadUserInfo(true)
     }
+    storage.getHistory()
   },
 
   /**
@@ -101,15 +104,15 @@ Page({
     }
     let position = evn.detail.id;
     if(position == 1){
-
+      navIntegral()
     }else if(position == 2){
-      
+      navShare()
     }else if(position == 3){
-      
+      navCollect()
     }else if(position == 4){
-      
+      navBookmark()
     }else if(position == 5){
-      
+      navHistory()
     }else if(position == 6){
       
     }else if(position == 7){
@@ -123,9 +126,11 @@ Page({
       let userInfo = wx.getStorageSync(cache.userInfo)
       console.log("userInfo",userInfo)
       api.coin(res=> {
+        this.data.myItemList[0].subText = res.coinCount
         this.setData({
           userLevel: "等级："+ res.level + "  排名："+ res.rank,
           userName: userInfo.nickname,
+          myItemList:this.data.myItemList
         })
       }, res=>{})
     }

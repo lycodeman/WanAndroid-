@@ -1,1 +1,82 @@
 /* pages/webview/webview.wxss */
+
+.float-button {
+  position: fixed;
+  right: 16px;
+  bottom: 64px; /* 控制按钮与屏幕底部的距离 */
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  background-color: #ff0000; /* 按钮颜色 */
+  background-color: rgb(255, 0, 0,0.5);
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 1);
+  z-index: 99999;
+  visibility: visible!important;
+}
+
+.float-button .image{
+  width: 24px;
+  height: 24px;
+}
+
+.bookmark {
+  visibility: visible!important;
+  position: fixed;
+  right: 16px;
+  bottom: 128px; /* 控制按钮与屏幕底部的距离 */
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  background-color: #ff0000; /* 按钮颜色 */
+  background-color: rgb(255, 0, 0,0.5);
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 1);
+  z-index: 99999;
+  
+}
+.bookmark .image{
+  width: 24px;
+  height: 24px;
+}
+
+.collect {
+  visibility: visible!important;
+  position: fixed;
+  right: 16px;
+  bottom: 192px; /* 控制按钮与屏幕底部的距离 */
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  background-color: #ff0000; /* 按钮颜色 */
+  background-color: rgb(255, 0, 0,0.5);
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 1);
+  z-index: 99999;
+  
+}
+.collect .image{
+  width: 32px;
+  height: 32px;
+}
+
+.more {
+  position: fixed;
+  right: 0px;
+  bottom: 0px; /* 控制按钮与屏幕底部的距离 */
+}

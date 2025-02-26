@@ -1,0 +1,19 @@
+<!--pages/coinrank/coinrank.wxml-->
+<view class="column container" style="flex: 1;height: 100%;width: 100%;position: relative;">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+
+  <view style="padding-top: {{navHeight}}px;width: 100%;" class="column">
+    <view wx:for="{{coinRankList}}" wx:key="coin_item" class="column" style="width: 100%;">
+      <coin-rank-item rank="{{item}}"></coin-rank-item>
+    </view>
+  </view>
+
+  
+</view>

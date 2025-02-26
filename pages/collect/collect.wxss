@@ -1,0 +1,21 @@
+/* pages/collect/collect.wxss */
+.title {
+  color: white;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.back {
+  height: 48rpx;
+  width: 48rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0rpx 16rpx 20rpx 16rpx;
+  flex-direction: column;
+}
+
+.container {
+  position: relative;
+  background-color: #F5F5F5;
+  justify-content: flex-start;
+}

@@ -1,0 +1,19 @@
+<!--pages/share/share.wxml-->
+<view class="column container" style="position: relative;height: 100%;">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+  <view class="float-button" bindtap="onButtonClick">+</view>
+  <view style="padding-top: {{navHeight}}px;width: 100%;" class="column">
+    <view class="column">
+      <view wx:for="{{shareList}}" wx:key="share_item" class="column" style="width: 100%;">
+        <article-item article="{{item}}"></article-item>
+      </view>
+    </view>
+  </view>
+</view>

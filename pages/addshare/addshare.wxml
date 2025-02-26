@@ -1,0 +1,39 @@
+<!--pages/addshare/addshare.wxml-->
+<view class="column container" style="position: relative;height: 100%;">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+  <view style="padding-top: {{navHeight}}px;width: 100%;" class="column">
+    <view class="title column">
+      <view class="row" style="margin-bottom: 12px;">
+        <text style="flex: 1;color: #666666;font-size: 12px;">文章标题</text>
+        <text style="color: #284ef7;font-size: 12px;font-weight: 400;" bind:tap="refreshTitle">刷新标题</text>
+      </view>
+      <view>
+        <textarea maxlength="100" auto-height class="input" value="{{titleContent}}" placeholder="100字以内" bindconfirm="titleConfirm" bindinput="titleInput"></textarea>
+      </view>
+    </view>
+    <view class="link column">
+      <view class="row" style="margin-bottom: 12px;">
+        <text style="flex: 1;color: #666666;font-size: 12px;">文章连接</text>
+        <text style="color: #284ef7;font-size: 12px;font-weight: 400;" bind:tap="openLink">打开连接</text>
+      </view>
+      <view>
+        <textarea class="input" auto-height value="{{linkContent}}" placeholder="如：https://www.wanandroid.com/blog/show/2577" bindconfirm="linkConfirm" bindinput="linkInput"></textarea>
+      </view>
+    </view>
+    <text class="share" bind:tap="share">分享</text>
+  </view>
+  <text class="desc">
+      1.只要是任何好文都可以分享哈,并不一定要是原创!投递的文章会进入广场tab;
+      2.CSDN,掘金,简书等官方博客站点会直接通过,不需要审核;
+      3.其他个人站点会进入审核阶段,不要投递任何无效链接,否则可能会对你的账号产生一定影响;
+      4.如果你发现错误,可以提交日志,让我们一起使网站变得更好。
+      5.由于本站为个人开发与维护,会尽力保证24小时内审核,当然有可能哪天太累,会延期,请保持佛系...
+    </text>
+</view>

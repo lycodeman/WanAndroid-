@@ -1,0 +1,8 @@
+<!--component/dialog/dialog.wxml-->
+<view class="dialog">
+  <view class="content">
+    <slot name="content"></slot> 
+  </view>
+
+  <slot name="bottom"></slot> 
+</view>

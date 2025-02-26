@@ -124,7 +124,7 @@ Page({
     })
   },
   onNavTagClick(res){
-    nav.navWeb(res.detail.data.link);
+    nav.navWeb(res.detail.data.link,false, res.detail.data.id,res.detail.data.title);
   },
   onSysTagClick(res){
     let curTag = this.data.sysList[res.detail.index];

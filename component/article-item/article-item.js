@@ -1,6 +1,10 @@
 // component/articleItem/article-item.js
+const api = require('../../api/api');
+const { article } = require('../../api/url');
 const date = require('../../utils/date');
 const nav = require('../../utils/nav');
+const storage = require('../../utils/storage');
+const toast = require('../../utils/toast');
 Component({
   options: {
     addGlobalClass: true,
@@ -22,7 +26,10 @@ Component({
         }
         this.setData({
           isNew: isNew,
-          descFormat: desc
+          descFormat: desc,
+          collect: newVal.collect,
+          chapter: this.getChapter(newVal),
+          author: this.getAuthor(newVal)
         })
       }
     }
@@ -33,7 +40,10 @@ Component({
    */
   data: {
     isNew: false,
-    desc: ''
+    desc: '',
+    collect: false,
+    chapter: '',
+    author: ''
   },
 
   /**
@@ -41,11 +51,34 @@ Component({
    */
   methods: {
     collect() {
-      console.log("收藏")
+      // console.log("收藏")
+      if(!this.data.collect){
+        api.addCollect(this.properties.article.id, res=>{
+          toast.show("收藏成功")
+          this.setData({
+            collect : !this.data.collect
+          }, res=> {
+            this.triggerEvent('OnCollectChanged', {isCollect: this.data.collect, id: this.properties.article.id}, {})
+          })
+        })
+      }else {
+        api.removeCollect(this.properties.article.id, -1,res=>{
+          toast.show("取消收藏")
+          this.setData({
+            collect : !this.data.collect
+          }, res=> {
+            this.triggerEvent('OnCollectChanged', {isCollect: this.data.collect, id: this.properties.article.id}, {})
+          })
+         
+        })
+      }
+    
     },
     onClick(){
       console.log("跳转到详情:",this.data.article.link)
-      nav.navWeb(this.data.article.link, true)
+      //缓存历史浏览记录
+      storage.saveHistory(this.data.article)
+      nav.navWeb(this.data.article.link, true, this.data.article.id, this.data.article.title)
     },
     formatText(htmlString){
       // 使用正则表达式提取所有 <p> 标签的内容
@@ -55,8 +88,31 @@ Component({
       while ((match = regex.exec(htmlString)) !== null) {
         result.push(match[2].replace(/<[^>]+>/g, '').trim().replace(/[\n\r\s]+/g, ' ').trim());  // 提取去掉标签后的内容
       }
-      console.log("【"+htmlString+ "】"+result);
+      // console.log("【"+htmlString+ "】"+result);
       return result;
+    },
+    getChapter(article){
+      let cha = ""
+      if (article.superChapterName && article.superChapterName.length > 0) {
+        cha = article.superChapterName
+      }
+      if (article.chapterName && article.chapterName.length > 0) {
+        if (cha.length > 0){
+          cha = cha + "・" + article.chapterName
+        }else {
+          cha = article.chapterName
+        }
+      }
+      return cha
+    },
+    getAuthor(article){
+      if (article.author && article.author.length > 0) {
+        return article.author;
+      }
+      if (article.shareUser && article.shareUser.length > 0) {
+        return article.shareUser;
+      }
+      return '匿名'
     }
   }
 })

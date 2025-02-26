@@ -1,0 +1,51 @@
+/* pages/addshare/addshare.wxss */
+.title {
+  color: white;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.back {
+  height: 48rpx;
+  width: 48rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0rpx 16rpx 20rpx 16rpx;
+  flex-direction: column;
+}
+
+.container {
+}
+.title {
+  padding: 16px;
+}
+.link {
+  padding: 16px;
+}
+.share {
+  border-radius: 48px;
+  border: 1px solid #4643f0;
+  background-color: #4643f0;
+  font-size: 18px;
+  color: white;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 0px;
+  margin: 48px 48px;
+}
+.desc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  font-size: 14px;
+  color: #999999;
+}
+.input {
+  color: #4a4a4a;
+  flex: 1;
+  font-weight: 400;
+}

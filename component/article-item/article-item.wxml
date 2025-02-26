@@ -1,6 +1,6 @@
 <!--component/articleItem/article-item.wxml-->
 <view class="column" bind:tap="onClick">
-  <view class="row space-between align-items-center padding-horizontal-24 margin-top-16">
+  <view class="row space-between align-items-center padding-horizontal-24" style="margin-top: 12px;">
     <view class="row align-items-center">
       <text wx:if="{{isNew}}" class="new-text">NEW</text>
       <text class="author">{{article.author?article.author:article.shareUser}}</text>
@@ -15,9 +15,9 @@
     <text>{{article.title}}</text>
     <text class="desc" wx:if="{{descFormat != undefined}}">{{descFormat}}</text>
   </view>
-  <view class="row space-between align-items-center padding-horizontal-24" style="margin-bottom: 8rpx;">
-    <text class="chapter">{{article.superChapterName}}・{{article.chapterName}}</text>
-    <image class="collect" capture-catch:tap="collect" src="{{article.collect ? '../../images/collect_select.png': '../../images/collect.png'}}"/>
+  <view class="row space-between align-items-center padding-horizontal-24" style="margin-bottom: 12px;">
+    <text class="chapter">{{chapter}}</text>
+    <image class="collect" capture-catch:tap="collect" src="{{collect ? '../../images/collect_select.png': '../../images/collect.png'}}"/>
   </view>
-  <line width="100%" height="1rpx"/>
+  <line width="100%" height="1px"/>
 </view>

@@ -1,0 +1,16 @@
+/* component/coin-item/coin-item.wxss */
+.title {
+  font-size: 18px;
+  color: #333333;
+}
+
+.time {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #999999;
+}
+
+.coin {
+  font-size: 16px;
+  color: #f80000;
+}

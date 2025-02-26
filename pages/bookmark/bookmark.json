@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav": "../../component/nav/nav",
+    "history-item": "../../component/history-item/history-item"
+  },
+  "enablePullDownRefresh": true
+}

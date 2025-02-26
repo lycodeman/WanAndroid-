@@ -1,0 +1,26 @@
+<!--pages/integral/integral.wxml-->
+<view class="column container" style="flex: 1;height: 100vh;width: 100%;position: relative;">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
+      <image class="wenhao" capture-catch:tap="onQa" src="{{'../../images/wenhao.png'}}"/>
+      <image class="coinrank" capture-catch:tap="onRank" src="{{'../../images/coinrank.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+
+  <view style="padding-top: {{navHeight}}px;width: 100%;" class="column">
+    <view class="header">
+      <text class="coin">{{coin}}</text>
+    </view>
+    <view class="column"  >
+      <view wx:for="{{coinList}}" wx:key="coin_item" class="column" style="width: 100%;">
+        <coin-item coin="{{item}}"></coin-item>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

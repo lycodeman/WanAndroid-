@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav": "../../component/nav/nav",
+    "coin-rank-item": "../../component/coin-rank-item/coin-rank-item"
+  }
+}

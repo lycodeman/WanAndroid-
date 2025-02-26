@@ -1,0 +1,7 @@
+<!--component/history-item/history-item.wxml-->
+<view style="padding: 16px;width: 100%;background-color: white;box-sizing: border-box;" bind:tap="onClick">
+  <view style="width: 100%;">
+    <text class="title">{{title}}</text>
+    <view class="time">{{formatTime}}</view>
+  </view>
+</view>

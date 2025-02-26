@@ -1,0 +1,11 @@
+<!--component/coin-rank-item/coin-rank-item.wxml-->
+<view class="row align-items-center" style="height: 56px;display: flex;width: 100%;padding: 8px 16px;box-sizing: border-box;">
+  <image wx:if="{{rank.rank == 1}}" class="img" src="{{ '../../images/rank_first.png'}}"></image>
+  <image wx:if="{{rank.rank == 2}}" class="img" src="../../images/rank_second.png"></image>
+  <image wx:if="{{rank.rank == 3}}" class="img" src="{{'../../images/rank_third.png'}}"></image>
+  <view wx:if="{{rank.rank != '1' && rank.rank != '2' && rank.rank != '3'}}" class="rank">{{rank.rank}}</view>
+
+  <view class="name">{{rank.nickname ? rank.nickname : rank.username}}</view>
+  <view class="coinCount">{{rank.coinCount}}</view>
+
+</view>

@@ -1,0 +1,20 @@
+/* component/coin-rank-item/coin-rank-item.wxss */
+.rank {
+  color: #666666;
+  font-size: 16px;
+  margin-left: 8px;
+}
+.name {
+  color: #333333;
+  flex: 1;
+  margin-left: 12px;
+  font-size: 16px;
+}
+.coinCount {
+  color: #005ec9;
+  font-size: 16px;
+}
+.img {
+  height: 32px;
+  width: 32px;
+}

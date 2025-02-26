@@ -1,19 +1,19 @@
 const request = require("./request.js");
 const url = require("./url.js");
 
-function requestByPath(path, onSuccess, onComplete) {
+function requestByPath(path, onSuccess, onComplete, onError) {
   request.wrapper({
     url: url.domain + path
   }, res=>{
     console.log("requestByPath result: ",res);
-    onSuccess(res);
+    onSuccess && onSuccess(res);
   }, error=> {
-
+    onError && onError(error);
   }, res=> {
-    onComplete(res);
+    onComplete && onComplete(res);
   });
 }
-function requestByPathPost(path, data, onSuccess, onComplete) {
+function requestByPathPost(path, data, onSuccess, onComplete, onError) {
   request.wrapper({
     url: url.domain + path,
     method: "POST",
@@ -21,11 +21,11 @@ function requestByPathPost(path, data, onSuccess, onComplete) {
     header: {"Content-Type": "application/x-www-form-urlencoded"}
   }, res=>{
     console.log("requestByPath result: ",res);
-    onSuccess(res);
+    onSuccess && onSuccess(res);
   }, error=> {
-
+    onError && onError(error);
   }, res=> {
-    onComplete(res);
+    onComplete && onComplete(res);
   });
 }
 /**首页 */
@@ -69,6 +69,43 @@ function coin(onSuccess, onComplete) {
   requestByPath(url.coin, onSuccess, onComplete);
 }
 
+//收藏
+function collectList(index, onSuccess, onComplete) {
+  requestByPath(url.collectList(index), onSuccess, onComplete);
+}
+
+//添加收藏
+function addCollect(id, onSuccess, onComplete) {
+  requestByPathPost(url.addCollect(id), {}, onSuccess, onComplete);
+}
+
+//取消收藏
+function removeCollect(id, originId, onSuccess, onComplete) {
+  requestByPathPost(url.removeCollect(id), {originId: originId},  onSuccess, onComplete);
+}
+
+//积分
+function coinList(page, onSuccess, onComplete, onError) {
+  requestByPath(url.coinList(page), onSuccess, onComplete, onError);
+}
+
+function coinRankList(page, onSuccess, onComplete) {
+  requestByPath(url.coinRankList(page), onSuccess, onComplete);
+}
+
+//分享列表
+function shareArticles(page, onSuccess, onComplete) {
+  requestByPath(url.shareArticles(page), onSuccess, onComplete);
+}
+
+function priArticles(page, onSuccess, onComplete) {
+  requestByPath(url.priArticles(page), onSuccess, onComplete);
+}
+
+function addShare(title, link, onSuccess, onComplete) {
+  requestByPathPost(url.addShare(),{title:title, link:link}, onSuccess, onComplete);
+}
+
 module.exports = {
   home: home,
   banner: banner,
@@ -79,5 +116,13 @@ module.exports = {
   wenda: wenda,
   login: login,
   register: register,
-  coin: coin
+  coin: coin,
+  collectList: collectList,
+  addCollect: addCollect, 
+  removeCollect: removeCollect,
+  coinList: coinList,
+  coinRankList: coinRankList,
+  shareArticles: shareArticles,
+  priArticles: priArticles,
+  addShare: addShare
 }

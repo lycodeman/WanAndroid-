@@ -1,0 +1,9 @@
+<!--component/coin-item/coin-item.wxml-->
+<view class="row" style="box-sizing: border-box;display: flex;padding: 16px;align-items: center;">
+  <view style="flex-direction: column;display: flex;flex: 1;">
+    <text class="title">{{title}}</text>
+    <text class="time">{{time}}</text>
+  </view>
+
+  <text class="coin">+{{coinCount}}</text>
+</view>

@@ -1,0 +1,53 @@
+/* pages/integral/integral.wxss */
+.title {
+  color: white;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.back {
+  height: 48rpx;
+  width: 48rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0rpx 16rpx 20rpx 16rpx;
+  flex-direction: column;
+}
+.wenhao {
+  height: 36rpx;
+  width: 36rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0rpx 16rpx 26rpx 80rpx;
+  flex-direction: column;
+}
+.coinrank {
+  height: 36rpx;
+  width: 36rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0rpx 16rpx 26rpx 132rpx;
+  flex-direction: column;
+}
+.header{
+  width: 100%;
+  background-color: #ff0000;
+  height: 200px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: initial;
+}
+.container {
+  position: relative;
+  background-color: #F5F5F5;
+  justify-content: flex-start;
+}
+.coin {
+  color: white;
+  font-size: 64px;
+
+}
