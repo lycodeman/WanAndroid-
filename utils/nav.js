@@ -58,6 +58,17 @@ function addShare(events) {
     events: events
   })
 }
+function navSeeting(events) {
+  wx.navigateTo({
+    url: `/pages/setting/setting`,
+    events: events
+  })
+}
+function navOpen() {
+  wx.navigateTo({
+    url: '/pages/open/open',
+  })
+}
 module.exports = {
   navWeb: navWeb,
   navArticle: navArticle,
@@ -69,5 +80,7 @@ module.exports = {
   navCollect: navCollect,
   navShare: navShare,
   navCoinRank: navCoinRank,
-  addShare: addShare
+  addShare: addShare,
+  navSeeting: navSeeting,
+  navOpen: navOpen
 }

@@ -10,7 +10,7 @@ Page({
    */
   data: {
     coinRankList: [],
-    title: "我的积分",
+    title: "积分排行",
     navBgColor: colors.C_ff0000,
     navHeight: 0,
     curPage:1,

@@ -1,5 +1,5 @@
-<!--pages/bookmark/bookmark.wxml-->
-<view class="column container" style="flex: 1;height: 100vh;">
+<!--pages/setting/setting.wxml-->
+<view>
   <nav backgroundColor="{{navBgColor}}">
     <view style="width: 100%;position: relative;height: 100%;">
       <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
@@ -8,9 +8,11 @@
       </view>
     </view>
   </nav>
+
   <view style="padding-top: {{navHeight}}px;" class="column" >
-    <view wx:for="{{markList}}" wx:key="book_mark_item" class="column" >
-      <history-item title="{{item.title}}" time="{{item.time}}"></history-item>
+    <view class="logout" bind:tap="logout">
+      <text >退出登录</text>
     </view>
   </view>
+
 </view>

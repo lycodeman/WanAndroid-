@@ -15,7 +15,9 @@
     "pages/share/share",
     "pages/integral/integral",
     "pages/coinrank/coinrank",
-    "pages/addshare/addshare"
+    "pages/addshare/addshare",
+    "pages/setting/setting",
+    "pages/open/open"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -5,7 +5,7 @@ const login = require("../../utils/login");
 const nav = require("../../utils/nav");
 const cache = require("../../utils/cache");
 const { Login_Event } = require("../../utils/event_channel");
-const { navHistory, navIntegral, navShare, navCollect, navBookmark } = require("../../utils/nav");
+const { navHistory, navIntegral, navShare, navCollect, navBookmark, navSeeting, navOpen } = require("../../utils/nav");
 const storage = require("../../utils/storage");
 Page({
 
@@ -114,11 +114,17 @@ Page({
     }else if(position == 5){
       navHistory()
     }else if(position == 6){
-      
+      navOpen()
     }else if(position == 7){
       
     }else if(position == 8){
-      
+      var self = this
+      navSeeting({
+        // 监听页面 B 发来的事件
+        "Logout_Event": function(data) {
+          self.loadUserInfo(false);
+        }
+      })
     }
   },
   loadUserInfo(isLogin){
@@ -133,6 +139,16 @@ Page({
           myItemList:this.data.myItemList
         })
       }, res=>{})
+    }else {
+      wx.setStorageSync(cache.userInfo, null);
+      wx.setStorageSync(cache.cookies, null);
+      this.data.myItemList[0].subText = ""
+      login.loginReset()
+      this.setData({
+        userLevel: "",
+        userName: "去登录",
+        myItemList:this.data.myItemList
+      })
     }
   }
 })

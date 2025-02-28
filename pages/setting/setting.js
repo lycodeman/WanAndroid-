@@ -1,17 +1,17 @@
-// pages/bookmark/bookmark.js
-const colors = require("../../utils/colors");
+// pages/setting/setting.js
 const api = require("../../api/api");
+const colors = require("../../utils/colors");
+const { Logout_Event } = require("../../utils/event_channel");
 const { navBack } = require("../../utils/nav");
-const storage = require("../../utils/storage");
+const toast = require("../../utils/toast");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    title: "我的书签",
+    title: "系统设置",
     navBgColor: colors.C_ff0000,
-    markList: new Array(),
     navHeight: 0,
   },
 
@@ -28,7 +28,6 @@ Page({
   onReady() {
     this.setData({
       navHeight: wx.getWindowInfo().statusBarHeight + 44,
-      markList: storage.getMark()
     })
   },
 
@@ -57,11 +56,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-    this.setData({
-      markList: storage.getMark()
-    },res=>{
-      wx.stopPullDownRefresh()
-    })
+
   },
 
   /**
@@ -80,10 +75,12 @@ Page({
   onBack(){
     navBack()
   },
-  onButtonClick(){
-    storage.clearMark();
-    this.setData({
-      markList: storage.getMark()
-    })
+  logout(){
+    var self = this
+    api.logout(res=>{
+      toast.show("退出成功")
+      self.getOpenerEventChannel().emit(Logout_Event, {isLogout: true});
+      navBack()
+    },res=>{})
   }
 })

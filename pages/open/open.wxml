@@ -1,0 +1,19 @@
+<!--pages/open/open.wxml-->
+<view class="column" style="flex: 1;height: 100vh;">
+  <view class="container">
+    <nav backgroundColor="{{navBgColor}}">
+      <view style="width: 100%;position: relative;height: 100%;">
+        <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
+        <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+          <view class="title">{{title}}</view>
+        </view>
+      </view>
+    </nav>
+
+    <view style="padding-top: {{navHeight}}px;" class="column" >
+      <view wx:for="{{openList}}" wx:key="history_item" class="column" >
+        <history-item title="{{item.project}}" formatTime="{{item.description}}" link="{{item.link}}"></history-item>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+/* pages/setting/setting.wxss */
+.logout {
+  border-radius: 48px;
+  background-color: #ff0000;
+  font-size: 24px;
+  color: white;
+  align-items: center;
+  text-align: center;
+  height: 48px;
+  margin: 16px;
+  justify-content: center;
+  display: flex;
+}
+.title {
+  color: white;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.back {
+  height: 48rpx;
+  width: 48rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0rpx 16rpx 20rpx 16rpx;
+  flex-direction: column;
+}
+
+.container {
+  position: relative;
+  background-color: #F5F5F5;
+  justify-content: flex-start;
+}

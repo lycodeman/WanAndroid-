@@ -58,6 +58,10 @@ function wenda(index,onSuccess, onComplete) {
   requestByPath(url.wenda(index), onSuccess, onComplete);
 }
 
+function logout(onSuccess, onComplete) {
+  requestByPath(url.logout, onSuccess, onComplete);
+}
+
 function login(username, password,onSuccess, onComplete) {
   requestByPathPost(url.login,{username: username, password: password}, onSuccess, onComplete);
 }
@@ -124,5 +128,6 @@ module.exports = {
   coinRankList: coinRankList,
   shareArticles: shareArticles,
   priArticles: priArticles,
-  addShare: addShare
+  addShare: addShare,
+  logout: logout
 }
