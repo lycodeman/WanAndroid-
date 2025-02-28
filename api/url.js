@@ -50,6 +50,12 @@ const url = {
   addShare(){
     return `/lg/user_article/add/json`;
   },
+  articleQuery(page){
+    return `/article/query/${page}/json`;
+  }, 
+  hotkey(){
+    return `//hotkey/json`;
+  },
 }
 
 module.exports = url

@@ -9,6 +9,7 @@ Component({
       type: String,
       value: {},
       observer: function(newVal, oldVal) {
+        // console.log('tag 000===',newVal)
         // 属性值变化时执行
       }
     },

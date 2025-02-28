@@ -1,5 +1,13 @@
 <view class="home">
-  <view>
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="search" capture-catch:tap="onSearch" src="{{'../../images/search.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+  <view style="padding-top: {{navHeight}}px;" >
     <swiper indicator-dots="{{indicatorDots}}"
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
         <block wx:for="{{bannerList}}" wx:for-item="banner" wx:key="imagePath" >

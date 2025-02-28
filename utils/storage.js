@@ -63,7 +63,7 @@ function saveMark(data) {
 //获取书签，返回数组
 function getMark() {
   if(!login.isLogin()){
-    return;
+    return [];
   }
   let userInfo = wx.getStorageSync(CacheKey.userInfo)
   let markList = wx.getStorageSync('mark_' + userInfo.id);
@@ -83,11 +83,68 @@ function clearMark() {
   wx.removeStorageSync('mark_' + userInfo.id);
 }
 
+//保存搜索关键字
+function saveSearchKeys(data) {
+  var seachKey = 'search_keys'
+  if(login.isLogin()){
+    let userInfo = wx.getStorageSync(CacheKey.userInfo)
+    seachKey = 'search_keys_' + userInfo.id
+  }
+  let searchList = getSearchKeys()
+  var hasKey = false
+  searchList.forEach(element => {
+    if (element.name == data) {
+      hasKey = true
+    }
+  });
+  if (hasKey) {
+    return;
+  }
+  if(searchList){
+    searchList.unshift({name: data})
+  }else {
+    searchList = new Array();
+    searchList.unshift({name: data})
+  }
+  console.log("saveSearchKeys", data)
+  console.log("saveSearchKeys", searchList)
+  wx.setStorageSync(seachKey, JSON.stringify(searchList));
+  getSearchKeys();
+}
+//获取搜索关键字，返回数组
+function getSearchKeys() {
+  var seachKey = 'search_keys'
+  if(login.isLogin()){
+    let userInfo = wx.getStorageSync(CacheKey.userInfo)
+    seachKey = 'search_keys_' + userInfo.id
+  }
+  let searchList = wx.getStorageSync(seachKey);
+  console.log("searchList", searchList);
+  if(searchList){
+    return JSON.parse(searchList);
+  }else {
+    return []
+  }
+}
+
+function clearSearchKeys() {
+  if(!login.isLogin()){
+    wx.removeStorageSync('search_keys');
+    return;
+  }
+  let userInfo = wx.getStorageSync(CacheKey.userInfo)
+  wx.removeStorageSync('search_keys_' + userInfo.id);
+}
+
 module.exports = {
   saveHistory: saveHistory,
   getHistory: getHistory,
   clearHistory: clearHistory,
   saveMark: saveMark,
   getMark: getMark,
-  clearMark: clearMark
+  clearMark: clearMark,
+  saveSearchKeys: saveSearchKeys,
+  getSearchKeys: getSearchKeys,
+  clearSearchKeys: clearSearchKeys,
+  
 }

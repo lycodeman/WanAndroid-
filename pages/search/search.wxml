@@ -1,0 +1,34 @@
+<!--pages/search/search.wxml-->
+<view class="root">
+  <nav backgroundColor="{{navBgColor}}">
+    <view style="width: 100%;position: relative;height: 100%;">
+      <image class="back" capture-catch:tap="onBack" src="{{'../../images/back.png'}}"/>
+      <view class="row align-items-center padding-horizontal-16 justify-content-center" style="height: 100%;">
+        <view class="title">{{title}}</view>
+      </view>
+    </view>
+  </nav>
+
+  <view style="padding-top: {{navHeight}}px;" class="column" >
+    <view class="row" style="background-color: #ff0000;width: 100%;align-items: center;">
+      <view class="input-container">
+        <input class="input" 	placeholder-style="placeholder-input" value="{{content}}" placeholder="{{'用空格隔开多个关键字'}}" bindconfirm="confirm" bindinput="input"></input>
+        <image class="search-close" capture-catch:tap="onClear" src="{{'../../images/search_close.png'}}"/>
+      </view>
+      <image class="search" capture-catch:tap="onSearch" src="{{'../../images/search.png'}}"/>
+    </view>
+    <view style="position: relative;">
+      <view class="column">
+        <tags tagList="{{hotKeys}}" title="{{'热门搜索'}}" index="{{0}}" bindOnClick="onHotKeyTagClick"></tags>
+        <tags tagList="{{historySearchKeys}}" title="{{'历史搜索'}}" index="{{0}}" bindOnClick="onHistoryKeyTagClick"></tags>
+      </view>
+
+      <view wx:if="{{articleList.length > 0}}" style="position: absolute;top: 0;background-color: white;">
+        <view wx:for="{{articleList}}" wx:for-item="article" wx:key="id">
+          <article-item article="{{article}}"></article-item>
+        </view>
+      </view>
+    </view>
+  
+  </view>
+</view>

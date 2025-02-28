@@ -1,11 +1,16 @@
 // pages/home/home.js
 const api = require('../../api/api');
+const colors = require("../../utils/colors");
+const { navBack, navSearch } = require("../../utils/nav");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    title: "首页",
+    navBgColor: colors.C_ff0000,
+    navHeight: 0,
     curPage: 0,
     pageCount: 20,
     articleList: [],
@@ -21,6 +26,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.setData({
+      navHeight: wx.getWindowInfo().statusBarHeight + 44,
+    })
     this.home(true);
     this.banner();
   },
@@ -108,5 +116,8 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+  onSearch(){
+    navSearch()
+  },
 })

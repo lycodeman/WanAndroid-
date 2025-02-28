@@ -69,6 +69,12 @@ function navOpen() {
     url: '/pages/open/open',
   })
 }
+
+function navSearch() {
+  wx.navigateTo({
+    url: '/pages/search/search',
+  })
+}
 module.exports = {
   navWeb: navWeb,
   navArticle: navArticle,
@@ -82,5 +88,6 @@ module.exports = {
   navCoinRank: navCoinRank,
   addShare: addShare,
   navSeeting: navSeeting,
-  navOpen: navOpen
+  navOpen: navOpen,
+  navSearch: navSearch,
 }

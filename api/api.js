@@ -110,6 +110,14 @@ function addShare(title, link, onSuccess, onComplete) {
   requestByPathPost(url.addShare(),{title:title, link:link}, onSuccess, onComplete);
 }
 
+function articleQuery(page, keyword, onSuccess, onComplete) {
+  requestByPathPost(url.articleQuery(page),{k:keyword}, onSuccess, onComplete);
+}
+
+function hotkey(onSuccess, onComplete) {
+  requestByPath(url.hotkey(),onSuccess, onComplete);
+}
+
 module.exports = {
   home: home,
   banner: banner,
@@ -129,5 +137,7 @@ module.exports = {
   shareArticles: shareArticles,
   priArticles: priArticles,
   addShare: addShare,
-  logout: logout
+  logout: logout,
+  articleQuery: articleQuery,
+  hotkey: hotkey
 }

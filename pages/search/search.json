@@ -2,8 +2,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "nav": "../../component/nav/nav",
+    "tags": "../../component/tags/tags",
     "article-item": "../../component/article-item/article-item"
-  },
-  "navigationBarTitleText": "首页",
-  "enablePullDownRefresh": true
+  }
 }
